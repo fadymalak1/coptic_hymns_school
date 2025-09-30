@@ -1,4 +1,4 @@
-name: Deploy Website
+name: Deploy Flutter Web to cPanel
 
 on:
   push:
@@ -6,17 +6,31 @@ on:
       - main
 
 jobs:
-  ftp-deploy:
+  build:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout code
+      - name: 📥 Checkout repository
         uses: actions/checkout@v3
 
-      - name: FTP Deploy
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      - name: 🔧 Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: "3.35.4" # حط نسخة Flutter اللي بتستخدمها
+
+      - name: 📦 Install dependencies
+        run: flutter pub get
+
+      - name: 🏗️ Build Flutter Web
+        run: flutter build web --release
+
+      - name: 📂 Deploy to FTP Server
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./build/
-          server-dir: /public_html/
+          protocol: ftp
+          port: 21
+          local-dir: build/web/   # ← هنا بيتأكد إنه يرفع مجلد web
+          server-dir: public_html/ # ← ده المسار اللي موقعك بيستخدمه
