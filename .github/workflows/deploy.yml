@@ -18,5 +18,5 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./build   # حط هنا اسم فولدر الملفات اللي هترفعها
-          server-dir: /public_html/ # ده المسار على السيرفر (ممكن يكون مختلف حسب استضافتك)
+          local-dir: ./build/
+          server-dir: /public_html/
