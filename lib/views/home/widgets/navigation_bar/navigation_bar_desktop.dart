@@ -4,6 +4,7 @@ import 'package:coptic_hymns_school/shared/widgets/centered_view/centered_view.d
 import 'package:coptic_hymns_school/views/home/provider/home_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 import 'language_dropdown_widget.dart';
 import 'navigation_item.dart';
@@ -35,17 +36,22 @@ class NavigationBarDesktop extends ConsumerWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisSize: MainAxisSize.max,
           children: <Widget>[
-            Text(title, style: TextStyle(fontSize: 26, fontWeight: FontWeight.w900, color:color,),),
+            GestureDetector( onTap: (){
+              context.go('/');
+              ref.read(selectedTabProvider.notifier).state = 0;
+            },child: Text(title, style: TextStyle(fontSize: 26, fontWeight: FontWeight.w900, color:color,),)),
             Row(
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
                 NavBarItem(onTap: () {
+                  context.go('/');
                   ref.read(selectedTabProvider.notifier).state = 0;
                 }, isSelected: selectedTab == 0, label: translate.home),
                 SizedBox(
                   width: 30,
                 ),
                 NavBarItem(onTap: () {
+                  context.go('/check-access');
                   ref.read(selectedTabProvider.notifier).state = 1;
                 }, isSelected: selectedTab == 1, label: translate.my_courses),
                 SizedBox(

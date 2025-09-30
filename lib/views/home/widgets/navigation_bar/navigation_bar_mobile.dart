@@ -4,6 +4,7 @@ import 'package:coptic_hymns_school/shared/widgets/centered_view/centered_view.d
 import 'package:coptic_hymns_school/views/home/provider/home_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 class NavigationBarMobile extends ConsumerWidget {
   final String title;
@@ -32,7 +33,10 @@ class NavigationBarMobile extends ConsumerWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
 
           children: <Widget>[
-            FittedBox(fit: BoxFit.scaleDown,child: Text(title, style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700, color: color,),)),
+            GestureDetector( onTap: (){
+              ref.read(selectedTabProvider.notifier).state = 0;
+              GoRouter.of(context).go('/');
+            },child: Text(title, style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700, color: color,),)),
             IconButton(onPressed: (){
               Scaffold.of(context).openDrawer();
             }, icon: Icon(Icons.menu, color: color,))

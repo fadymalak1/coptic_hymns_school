@@ -109,9 +109,16 @@ class InstructorSectionDesktop extends ConsumerWidget {
                         await launchUrl(Uri.parse(instructor.contacts.facebook));
                       },child: Icon(Icons.facebook,color: color,),shape: const CircleBorder(),backgroundColor: Colors.white,),
                       SizedBox(width: 12,),
-                      if(instructor.contacts.whatsapp.isEmpty)
+                      if(instructor.contacts.whatsapp.isNotEmpty)
                         FloatingActionButton(elevation:2,onPressed: ()async{
-                          await launchUrl(Uri.parse(instructor.contacts.whatsapp));
+                          if (await canLaunchUrl(Uri.parse(instructor.contacts.whatsapp))) {
+                            await launchUrl(
+                              Uri.parse(instructor.contacts.whatsapp),
+                              mode: LaunchMode.externalApplication, // ensures it opens in new tab/app
+                            );
+                          } else {
+                            throw "Could not launch ${instructor.contacts.whatsapp}";
+                          }
                         },child: Icon(Icons.call,color: color,),shape: const CircleBorder(),backgroundColor: Colors.white,),
                     ],
                   ),

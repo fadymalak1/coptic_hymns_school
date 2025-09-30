@@ -24,7 +24,7 @@ class NavBarItem extends ConsumerWidget {
           label,
           style: TextStyle(
             fontSize: 16,
-            fontWeight: FontWeight.w500,
+            fontWeight: isSelected ? FontWeight.w700 : FontWeight.w500,
             color: isSelected ? color : Colors.grey[700],
           ),
         ),

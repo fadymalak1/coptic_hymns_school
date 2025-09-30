@@ -3,6 +3,7 @@ import 'package:coptic_hymns_school/views/home/provider/home_provider.dart';
 import 'package:coptic_hymns_school/views/home/widgets/navigation_bar/language_dropdown_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 import 'drawer_item.dart';
 import 'navigation_drawer_header.dart';
@@ -29,9 +30,17 @@ class NavigationDrawerWidget extends ConsumerWidget {
         children: [
           NavigationDrawerHeader(),
           SizedBox(height: 25,),
-          DrawerItem( title: translate.home, onTap: (){ ref.read(selectedTabProvider.notifier).state = 0; }, isSelected: selectedTab == 0),
+          DrawerItem( title: translate.home, onTap: (){
+            Scaffold.of(context).closeDrawer();
+            GoRouter.of(context).go('/');
+            ref.read(selectedTabProvider.notifier).state = 0;
+            }, isSelected: selectedTab == 0),
+
           SizedBox(height: 10,),
-          DrawerItem( title:translate.my_courses, onTap: (){ ref.read(selectedTabProvider.notifier).state = 1; },isSelected:selectedTab == 1,),
+          DrawerItem( title:translate.my_courses, onTap: (){
+            Scaffold.of(context).closeDrawer();
+            GoRouter.of(context).go('/check-access');
+            ref.read(selectedTabProvider.notifier).state = 1; },isSelected:selectedTab == 1,),
           SizedBox(height: 10,),
           SizedBox(
             width: double.infinity,

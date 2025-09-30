@@ -4,6 +4,7 @@ import 'package:coptic_hymns_school/l10n/app_localizations.dart';
 import 'package:coptic_hymns_school/shared/providers/local_provider.dart';
 import 'package:coptic_hymns_school/shared/screens/error_screen.dart';
 import 'package:coptic_hymns_school/shared/utils/animations.dart';
+import 'package:coptic_hymns_school/shared/utils/go_router.dart';
 import 'package:coptic_hymns_school/views/home/provider/home_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -39,7 +40,7 @@ class MyApp extends ConsumerWidget {
       data: (layoutData) {
         final color = hexToColor(layoutData.appSettings.color);
 
-        return MaterialApp(
+        return MaterialApp.router(
           title: locale.languageCode == 'ar'
               ? 'مدرسة الألحان القبطية'
               : 'Coptic Hymns School',
@@ -60,7 +61,7 @@ class MyApp extends ConsumerWidget {
             GlobalWidgetsLocalizations.delegate,
             GlobalCupertinoLocalizations.delegate,
           ],
-          home: const LayoutView(),
+          routerConfig: router,
         );
       },
       loading: () => Center(

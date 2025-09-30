@@ -22,13 +22,13 @@ class InstructorFeature extends StatelessWidget {
         color:Colors.white,
         boxShadow: [
           BoxShadow(
-            color: color.withOpacity(0.1),
+            color: Colors.black.withOpacity(0.2),
             blurRadius: 3,
             offset: const Offset(0, 3),
           ),
         ],
       ),
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -36,7 +36,7 @@ class InstructorFeature extends StatelessWidget {
             children: [
               Icon(icon, color: color,),
               SizedBox(width: 8,),
-              FittedBox(fit: BoxFit.scaleDown,child: Text("${label}", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: Colors.black,),)),
+              FittedBox(fit: BoxFit.scaleDown,child: Text("${label}", style: TextStyle(fontSize: 18, fontWeight: FontWeight.w800, color: Colors.black,),)),
             ],
           ),
           SizedBox(height: 8,),

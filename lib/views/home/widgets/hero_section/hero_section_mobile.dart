@@ -19,7 +19,7 @@ class HeroSectionMobile extends ConsumerWidget {
     return Directionality(
       textDirection: TextDirection.rtl,
       child: CenteredView(
-
+        horizontalPadding: 30,
         child: Column(
           children: [
             FadeCarousel(images: information.images,height: MediaQuery.of(context).size.height/2,),
