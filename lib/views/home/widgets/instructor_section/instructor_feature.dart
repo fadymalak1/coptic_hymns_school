@@ -36,11 +36,11 @@ class InstructorFeature extends StatelessWidget {
             children: [
               Icon(icon, color: color,),
               SizedBox(width: 8,),
-              FittedBox(fit: BoxFit.scaleDown,child: Text("${label}", style: TextStyle(fontSize: 18, fontWeight: FontWeight.w800, color: Colors.black,),)),
+              FittedBox(fit: BoxFit.scaleDown,child: Text(label, style: TextStyle(fontSize: 18, fontWeight: FontWeight.w800, color: Colors.black,),)),
             ],
           ),
           SizedBox(height: 8,),
-          Text("+ ${value}", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600, color: color,),),
+          Text("+ $value", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600, color: color,),),
         ],
       ),
     );

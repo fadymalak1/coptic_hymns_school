@@ -32,5 +32,5 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ftp
           port: 21
-          local-dir: build/web/   # ← هنا بيتأكد إنه يرفع مجلد web
-          server-dir: public_html/ # ← ده المسار اللي موقعك بيستخدمه
+          local-dir: build/web/
+          server-dir: public_html/
