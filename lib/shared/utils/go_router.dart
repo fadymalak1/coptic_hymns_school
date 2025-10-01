@@ -36,6 +36,7 @@ final router = GoRouter(
         GoRoute(
           path: '/payment',
           builder: (context, state) {
+
             final enrolment = state.extra as EnrolmentResponse;
             return Payment(enrolment: enrolment);
           },

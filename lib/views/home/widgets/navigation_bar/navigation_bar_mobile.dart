@@ -16,7 +16,7 @@ class NavigationBarMobile extends ConsumerWidget {
     final translate = AppLocalizations.of(context)!;
     final color = ref.watch(primaryColorProvider);
     return Container(
-      height: 70,
+      height: 80,
       decoration: BoxDecoration(
         color: Colors.white,
         boxShadow: [

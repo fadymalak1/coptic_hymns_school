@@ -49,6 +49,7 @@ class _RegisterWidgetState extends ConsumerState<RegisterWidget> {
             const SizedBox(height: 6),
             TextFormField(
               controller: _nameCtrl,
+              keyboardType: TextInputType.name,
               validator: (v) => v == null || v.isEmpty ? translate.fieldRequired : null,
               decoration: InputDecoration(
                 hintText: translate.enterFullName,
@@ -70,6 +71,7 @@ class _RegisterWidgetState extends ConsumerState<RegisterWidget> {
                 if (!emailRegex.hasMatch(v)) return translate.invalidEmail;
                 return null;
               },
+              keyboardType: TextInputType.emailAddress,
               decoration: InputDecoration(
                 hintText: translate.enterEmailAddress,
                 filled: true,
@@ -84,6 +86,7 @@ class _RegisterWidgetState extends ConsumerState<RegisterWidget> {
             const SizedBox(height: 6),
             TextFormField(
               controller: _phoneCtrl,
+              keyboardType: TextInputType.phone,
               validator: (v) => v == null || v.isEmpty ? translate.fieldRequired : null,
               decoration: InputDecoration(
                 hintText: translate.enterPhoneNumberWhatsApp,
@@ -137,7 +140,8 @@ class _RegisterWidgetState extends ConsumerState<RegisterWidget> {
                     // Navigate with GoRouter
                     context.go(
                       "/payment",
-                      extra: response,
+                      extra: response
+
                     );
                     } catch (e) {
                       if (mounted) {

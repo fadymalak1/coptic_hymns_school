@@ -319,6 +319,156 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Value must be less than or equal to {max}'**
   String maxValue(Object max);
+
+  /// No description provided for @completePayment.
+  ///
+  /// In en, this message translates to:
+  /// **'Complete Payment'**
+  String get completePayment;
+
+  /// No description provided for @paymentMethod.
+  ///
+  /// In en, this message translates to:
+  /// **'Payment Method'**
+  String get paymentMethod;
+
+  /// No description provided for @instapay.
+  ///
+  /// In en, this message translates to:
+  /// **'InstaPay'**
+  String get instapay;
+
+  /// No description provided for @mobileWallet.
+  ///
+  /// In en, this message translates to:
+  /// **'Mobile Wallet'**
+  String get mobileWallet;
+
+  /// No description provided for @instapayUsername.
+  ///
+  /// In en, this message translates to:
+  /// **'InstaPay Username'**
+  String get instapayUsername;
+
+  /// No description provided for @mobileNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'Mobile Number'**
+  String get mobileNumber;
+
+  /// No description provided for @sendAmount.
+  ///
+  /// In en, this message translates to:
+  /// **'Send {amount} EGP to this {type} and upload the receipt below'**
+  String sendAmount(Object amount, Object type);
+
+  /// No description provided for @username.
+  ///
+  /// In en, this message translates to:
+  /// **'username'**
+  String get username;
+
+  /// No description provided for @number.
+  ///
+  /// In en, this message translates to:
+  /// **'number'**
+  String get number;
+
+  /// No description provided for @usBankTransfer.
+  ///
+  /// In en, this message translates to:
+  /// **'US Bank Transfer'**
+  String get usBankTransfer;
+
+  /// No description provided for @accountHolder.
+  ///
+  /// In en, this message translates to:
+  /// **'Account Holder'**
+  String get accountHolder;
+
+  /// No description provided for @accountNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'Account Number'**
+  String get accountNumber;
+
+  /// No description provided for @swiftCode.
+  ///
+  /// In en, this message translates to:
+  /// **'SWIFT Code'**
+  String get swiftCode;
+
+  /// No description provided for @iban.
+  ///
+  /// In en, this message translates to:
+  /// **'IBAN'**
+  String get iban;
+
+  /// No description provided for @bankName.
+  ///
+  /// In en, this message translates to:
+  /// **'Bank Name'**
+  String get bankName;
+
+  /// No description provided for @bankAddress.
+  ///
+  /// In en, this message translates to:
+  /// **'Bank Address'**
+  String get bankAddress;
+
+  /// No description provided for @copied.
+  ///
+  /// In en, this message translates to:
+  /// **'Copied to clipboard!'**
+  String get copied;
+
+  /// No description provided for @uploadPaymentReceipt.
+  ///
+  /// In en, this message translates to:
+  /// **'Upload Payment Receipt'**
+  String get uploadPaymentReceipt;
+
+  /// No description provided for @clickToUploadReceipt.
+  ///
+  /// In en, this message translates to:
+  /// **'Click to upload receipt'**
+  String get clickToUploadReceipt;
+
+  /// No description provided for @allowedFormats.
+  ///
+  /// In en, this message translates to:
+  /// **'JPG, PNG, or JPEG'**
+  String get allowedFormats;
+
+  /// No description provided for @remove.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove'**
+  String get remove;
+
+  /// No description provided for @submitPayment.
+  ///
+  /// In en, this message translates to:
+  /// **'Submit Payment'**
+  String get submitPayment;
+
+  /// No description provided for @paymentSubmitted.
+  ///
+  /// In en, this message translates to:
+  /// **'Payment Submitted ✅'**
+  String get paymentSubmitted;
+
+  /// No description provided for @failedToSubmit.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to submit payment'**
+  String get failedToSubmit;
+
+  /// No description provided for @loading.
+  ///
+  /// In en, this message translates to:
+  /// **'Loading...'**
+  String get loading;
 }
 
 class _AppLocalizationsDelegate

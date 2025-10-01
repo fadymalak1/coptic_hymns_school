@@ -126,4 +126,81 @@ class AppLocalizationsEn extends AppLocalizations {
   String maxValue(Object max) {
     return 'Value must be less than or equal to $max';
   }
+
+  @override
+  String get completePayment => 'Complete Payment';
+
+  @override
+  String get paymentMethod => 'Payment Method';
+
+  @override
+  String get instapay => 'InstaPay';
+
+  @override
+  String get mobileWallet => 'Mobile Wallet';
+
+  @override
+  String get instapayUsername => 'InstaPay Username';
+
+  @override
+  String get mobileNumber => 'Mobile Number';
+
+  @override
+  String sendAmount(Object amount, Object type) {
+    return 'Send $amount EGP to this $type and upload the receipt below';
+  }
+
+  @override
+  String get username => 'username';
+
+  @override
+  String get number => 'number';
+
+  @override
+  String get usBankTransfer => 'US Bank Transfer';
+
+  @override
+  String get accountHolder => 'Account Holder';
+
+  @override
+  String get accountNumber => 'Account Number';
+
+  @override
+  String get swiftCode => 'SWIFT Code';
+
+  @override
+  String get iban => 'IBAN';
+
+  @override
+  String get bankName => 'Bank Name';
+
+  @override
+  String get bankAddress => 'Bank Address';
+
+  @override
+  String get copied => 'Copied to clipboard!';
+
+  @override
+  String get uploadPaymentReceipt => 'Upload Payment Receipt';
+
+  @override
+  String get clickToUploadReceipt => 'Click to upload receipt';
+
+  @override
+  String get allowedFormats => 'JPG, PNG, or JPEG';
+
+  @override
+  String get remove => 'Remove';
+
+  @override
+  String get submitPayment => 'Submit Payment';
+
+  @override
+  String get paymentSubmitted => 'Payment Submitted ✅';
+
+  @override
+  String get failedToSubmit => 'Failed to submit payment';
+
+  @override
+  String get loading => 'Loading...';
 }

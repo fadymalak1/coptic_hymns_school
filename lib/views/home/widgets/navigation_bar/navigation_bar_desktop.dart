@@ -19,7 +19,7 @@ class NavigationBarDesktop extends ConsumerWidget {
     final selectedTab = ref.watch(selectedTabProvider);
     final color = ref.watch(primaryColorProvider);
     return Container(
-      height: 70,
+      height: 90,
       decoration: BoxDecoration(
         color: Colors.white,
         boxShadow: [

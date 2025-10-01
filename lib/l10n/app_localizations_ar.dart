@@ -126,4 +126,81 @@ class AppLocalizationsAr extends AppLocalizations {
   String maxValue(Object max) {
     return 'القيمة يجب أن تكون أقل من أو تساوي $max';
   }
+
+  @override
+  String get completePayment => 'اكمل الدفع';
+
+  @override
+  String get paymentMethod => 'طريقة الدفع';
+
+  @override
+  String get instapay => 'إنستا باي';
+
+  @override
+  String get mobileWallet => 'المحفظة الإلكترونية';
+
+  @override
+  String get instapayUsername => 'اسم مستخدم إنستا باي';
+
+  @override
+  String get mobileNumber => 'رقم الهاتف';
+
+  @override
+  String sendAmount(Object amount, Object type) {
+    return 'أرسل $amount جنيه مصري إلى هذا $type وقم برفع إيصال الدفع بالأسفل';
+  }
+
+  @override
+  String get username => 'اسم المستخدم';
+
+  @override
+  String get number => 'الرقم';
+
+  @override
+  String get usBankTransfer => 'التحويل البنكي الأمريكي';
+
+  @override
+  String get accountHolder => 'اسم صاحب الحساب';
+
+  @override
+  String get accountNumber => 'رقم الحساب';
+
+  @override
+  String get swiftCode => 'رمز السويفت';
+
+  @override
+  String get iban => 'الآيبان';
+
+  @override
+  String get bankName => 'اسم البنك';
+
+  @override
+  String get bankAddress => 'عنوان البنك';
+
+  @override
+  String get copied => 'تم النسخ!';
+
+  @override
+  String get uploadPaymentReceipt => 'رفع إيصال الدفع';
+
+  @override
+  String get clickToUploadReceipt => 'اضغط لرفع الإيصال';
+
+  @override
+  String get allowedFormats => 'JPG، PNG أو JPEG';
+
+  @override
+  String get remove => 'إزالة';
+
+  @override
+  String get submitPayment => 'إرسال الدفع';
+
+  @override
+  String get paymentSubmitted => 'تم إرسال الدفع ✅';
+
+  @override
+  String get failedToSubmit => 'فشل ارسال صورة الدفع';
+
+  @override
+  String get loading => 'جاري التحميل';
 }
