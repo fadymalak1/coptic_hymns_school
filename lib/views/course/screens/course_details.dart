@@ -1,5 +1,6 @@
 import 'package:coptic_hymns_school/l10n/app_localizations.dart';
 import 'package:coptic_hymns_school/shared/utils/animations.dart';
+import 'package:coptic_hymns_school/shared/widgets/centered_view/centered_view.dart';
 import 'package:coptic_hymns_school/views/course/providers/course_details_provider.dart';
 import 'package:coptic_hymns_school/views/home/provider/home_provider.dart';
 import 'package:flutter/material.dart';
@@ -24,11 +25,9 @@ class CourseDetails extends ConsumerWidget {
     return courseDetailsAsync.when(
       data: (course) {
         return Scaffold(
-          body: Center(
-            child: ScreenTypeLayout(
-              mobile: CourseDetailsMobile(course: course),
-              desktop: CourseDetailsDesktop(course: course),
-            ),
+          body: ScreenTypeLayout(
+            mobile: CourseDetailsMobile(course: course),
+            desktop: CourseDetailsDesktop(course: course),
           ),
         );
       },

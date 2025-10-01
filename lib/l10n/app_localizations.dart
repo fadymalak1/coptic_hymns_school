@@ -163,6 +163,162 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Register Now'**
   String get register_now;
+
+  /// No description provided for @courseDetails.
+  ///
+  /// In en, this message translates to:
+  /// **'Course Details'**
+  String get courseDetails;
+
+  /// No description provided for @duration.
+  ///
+  /// In en, this message translates to:
+  /// **'Duration:'**
+  String get duration;
+
+  /// No description provided for @weeks.
+  ///
+  /// In en, this message translates to:
+  /// **'Weeks'**
+  String get weeks;
+
+  /// No description provided for @instructor.
+  ///
+  /// In en, this message translates to:
+  /// **'Instructor:'**
+  String get instructor;
+
+  /// No description provided for @rating.
+  ///
+  /// In en, this message translates to:
+  /// **'Rating:'**
+  String get rating;
+
+  /// No description provided for @totalPrice.
+  ///
+  /// In en, this message translates to:
+  /// **'Total Price:'**
+  String get totalPrice;
+
+  /// No description provided for @studentCount.
+  ///
+  /// In en, this message translates to:
+  /// **'Student Count:'**
+  String get studentCount;
+
+  /// No description provided for @registerForCourse.
+  ///
+  /// In en, this message translates to:
+  /// **'Register for Course'**
+  String get registerForCourse;
+
+  /// No description provided for @fullName.
+  ///
+  /// In en, this message translates to:
+  /// **'Full Name'**
+  String get fullName;
+
+  /// No description provided for @enterFullName.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter Full Name'**
+  String get enterFullName;
+
+  /// No description provided for @emailAddress.
+  ///
+  /// In en, this message translates to:
+  /// **'Email Address'**
+  String get emailAddress;
+
+  /// No description provided for @enterEmailAddress.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter Email Address'**
+  String get enterEmailAddress;
+
+  /// No description provided for @phoneNumberWhatsApp.
+  ///
+  /// In en, this message translates to:
+  /// **'Phone Number (WhatsApp)'**
+  String get phoneNumberWhatsApp;
+
+  /// No description provided for @enterPhoneNumberWhatsApp.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter Phone Number (WhatsApp)'**
+  String get enterPhoneNumberWhatsApp;
+
+  /// No description provided for @registrationSummary.
+  ///
+  /// In en, this message translates to:
+  /// **'Registration Summary:'**
+  String get registrationSummary;
+
+  /// No description provided for @course.
+  ///
+  /// In en, this message translates to:
+  /// **'Course:'**
+  String get course;
+
+  /// No description provided for @completeRegistration.
+  ///
+  /// In en, this message translates to:
+  /// **'Complete Registration'**
+  String get completeRegistration;
+
+  /// No description provided for @fieldRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'This field is required'**
+  String get fieldRequired;
+
+  /// No description provided for @invalidEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter a valid email address'**
+  String get invalidEmail;
+
+  /// No description provided for @invalidPhone.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter a valid phone number'**
+  String get invalidPhone;
+
+  /// No description provided for @minLength.
+  ///
+  /// In en, this message translates to:
+  /// **'This field must be at least {min} characters'**
+  String minLength(Object min);
+
+  /// No description provided for @maxLength.
+  ///
+  /// In en, this message translates to:
+  /// **'This field must be less than {max} characters'**
+  String maxLength(Object max);
+
+  /// No description provided for @passwordMismatch.
+  ///
+  /// In en, this message translates to:
+  /// **'Passwords do not match'**
+  String get passwordMismatch;
+
+  /// No description provided for @invalidNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter a valid number'**
+  String get invalidNumber;
+
+  /// No description provided for @minValue.
+  ///
+  /// In en, this message translates to:
+  /// **'Value must be greater than or equal to {min}'**
+  String minValue(Object min);
+
+  /// No description provided for @maxValue.
+  ///
+  /// In en, this message translates to:
+  /// **'Value must be less than or equal to {max}'**
+  String maxValue(Object max);
 }
 
 class _AppLocalizationsDelegate

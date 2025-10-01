@@ -1,5 +1,7 @@
 
 
+import 'dart:developer';
+
 import 'package:coptic_hymns_school/shared/models/course_details.dart';
 import 'package:coptic_hymns_school/shared/providers/api_provider.dart';
 import 'package:coptic_hymns_school/views/course/repository/course_details_repository.dart';
@@ -29,3 +31,6 @@ final courseDetailsProvider = FutureProvider.family<CourseDetails, int>((ref, co
   final repository = ref.watch(courseDetailsRepositoryProvider);
   return repository.getCourseDetails(courseId);
 });
+
+
+

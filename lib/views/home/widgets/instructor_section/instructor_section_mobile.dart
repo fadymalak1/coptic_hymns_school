@@ -78,7 +78,7 @@ class InstructorSectionMobile extends ConsumerWidget {
                 color: color,
                 label: translate.students_count,
                 value: "${instructor.studentsCount}",
-                icon: Icons.school,
+                icon: Icons.people,
               ),
               SizedBox(height: 10),
               InstructorFeature(
