@@ -4,7 +4,6 @@ import 'package:coptic_hymns_school/views/home/provider/home_provider.dart';
 import 'package:coptic_hymns_school/views/home/widgets/hero_section/fede_carousel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:social_media_buttons/social_media_button.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import 'instructor_feature.dart';

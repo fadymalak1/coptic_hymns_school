@@ -1,17 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/legacy.dart';
-import 'dart:html' as html; // for web storage
+
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LocaleNotifier extends StateNotifier<Locale> {
-  LocaleNotifier() : super(_getSavedLocale());
+  LocaleNotifier() : super(const Locale('en')) {
+    _loadSavedLocale();
+  }
 
-  // Load saved locale from localStorage
-  static Locale _getSavedLocale() {
-    final savedLang = html.window.localStorage['languageCode'];
+  // Load saved locale asynchronously
+  Future<void> _loadSavedLocale() async {
+    final prefs = await SharedPreferences.getInstance();
+    final savedLang = prefs.getString('languageCode');
     if (savedLang != null && savedLang.isNotEmpty) {
-      return Locale(savedLang);
+      state = Locale(savedLang);
     }
-    return const Locale('en'); // default
   }
 
   void toggleLocale() {
@@ -22,10 +25,10 @@ class LocaleNotifier extends StateNotifier<Locale> {
     }
   }
 
-  void setLocale(Locale locale) {
+  Future<void> setLocale(Locale locale) async {
     state = locale;
-    // Save to localStorage
-    html.window.localStorage['languageCode'] = locale.languageCode;
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString('languageCode', locale.languageCode);
   }
 }
 
