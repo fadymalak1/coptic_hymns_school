@@ -65,6 +65,8 @@
   "access_description": "أدخل بريدك الإلكتروني للوصول إلى الكورسات التي قمت بالتسجيل فيها.",
   "checkAccess": "التحقق من الوصول",
   "viewCourse": "عرض الكورس",
-  "noCoursesFound": "لم يتم العثور على كورسات لهذا البريد الإلكتروني"
-
+  "noCoursesFound": "لم يتم العثور على كورسات لهذا البريد الإلكتروني",
+  "my_learning_dashboard":"كورساتي",
+  "my_learning_dashboard_description": "أكمل رحلة التعلم مع مدرسة الألحان القبطية",
+  "registrationDate":"تاريخ التسجيل:"
 }

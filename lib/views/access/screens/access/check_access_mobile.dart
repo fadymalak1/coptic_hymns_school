@@ -35,7 +35,7 @@ class CheckAccessMobile extends ConsumerWidget {
                   children: [
                     Text(translate.access_title, style: TextStyle(fontSize: 24, fontWeight: FontWeight.w900, color: color,),),
                     SizedBox(height: 30,),
-                    Text(translate.access_description, style: TextStyle(fontSize: 16, color: color.withOpacity(0.5),),textAlign: TextAlign.center,),
+                    Text(translate.access_description, style: TextStyle(fontSize: 16, color: color.withOpacity(0.7),),textAlign: TextAlign.center,),
                     SizedBox(height: 30,),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -82,11 +82,14 @@ class CheckAccessMobile extends ConsumerWidget {
                   ref.read(accessLoadingProvider.notifier).state = true;
                   try {
                     final courses = await ref.read(coursesProvider(email).future);
+
+
                     if (courses.isEmpty) {
                       CustomSnackBar.show(context: context, message: translate.noCoursesFound, icon: Icons.error, color: Colors.red);
 
                     } else {
-                      context.go('/my-courses', extra: courses);
+                      ref.read(myCoursesProvider.notifier).state = courses;
+                      context.go('/my-courses'); // no need to pass extra
                     }
                   } catch (e) {
                     ScaffoldMessenger.of(context).showSnackBar(

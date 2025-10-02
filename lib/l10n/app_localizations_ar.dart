@@ -220,4 +220,14 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get noCoursesFound =>
       'لم يتم العثور على كورسات لهذا البريد الإلكتروني';
+
+  @override
+  String get my_learning_dashboard => 'كورساتي';
+
+  @override
+  String get my_learning_dashboard_description =>
+      'أكمل رحلة التعلم مع مدرسة الألحان القبطية';
+
+  @override
+  String get registrationDate => 'تاريخ التسجيل:';
 }

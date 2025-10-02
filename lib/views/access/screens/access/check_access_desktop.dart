@@ -11,14 +11,14 @@ class CheckAccessDesktop extends ConsumerWidget {
   const CheckAccessDesktop({super.key});
 
   @override
-  Widget build(BuildContext context,WidgetRef ref) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final color = ref.watch(primaryColorProvider);
     final translate = AppLocalizations.of(context)!;
     final isLoading = ref.watch(accessLoadingProvider);
     final _emailCtrl = TextEditingController();
     return Container(
       alignment: Alignment.center,
-      width:MediaQuery.of(context).size.width /3,
+      width: MediaQuery.of(context).size.width / 3,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -29,94 +29,129 @@ class CheckAccessDesktop extends ConsumerWidget {
             child: Padding(
               padding: const EdgeInsets.all(30.0),
               child: Column(
-                  children: [
-                    Text(translate.access_title, style: TextStyle(fontSize: 24, fontWeight: FontWeight.w900, color: color,),),
-                    SizedBox(height: 30,),
-                    Text(translate.access_description, style: TextStyle(fontSize: 16, color: color.withOpacity(0.5),),textAlign: TextAlign.center,),
-                    SizedBox(height: 30,),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(translate.emailAddress, style: const TextStyle(fontWeight: FontWeight.bold)),
-                        const SizedBox(height: 6),
-                        TextFormField(
-                          controller: _emailCtrl,
-                          validator: (v) {
-                            if (v == null || v.isEmpty) return translate.fieldRequired;
-                            final emailRegex = RegExp(r'^[^@]+@[^@]+\.[^@]+');
-                            if (!emailRegex.hasMatch(v)) return translate.invalidEmail;
-                            return null;
-                          },
-                          keyboardType: TextInputType.emailAddress,
-                          decoration: InputDecoration(
-                            hintText: translate.enterEmailAddress,
-                            filled: true,
-                            fillColor: Colors.grey[100],
-                            border: OutlineInputBorder(borderRadius: BorderRadius.circular(8),borderSide: BorderSide.none),
+                children: [
+                  Text(
+                    translate.access_title,
+                    style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.w900,
+                      color: color,
+                    ),
+                  ),
+                  SizedBox(height: 30),
+                  Text(
+                    translate.access_description,
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: color.withOpacity(0.7),
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                  SizedBox(height: 30),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        translate.emailAddress,
+                        style: const TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      const SizedBox(height: 6),
+                      TextFormField(
+                        controller: _emailCtrl,
+                        validator: (v) {
+                          if (v == null || v.isEmpty)
+                            return translate.fieldRequired;
+                          final emailRegex = RegExp(r'^[^@]+@[^@]+\.[^@]+');
+                          if (!emailRegex.hasMatch(v))
+                            return translate.invalidEmail;
+                          return null;
+                        },
+                        keyboardType: TextInputType.emailAddress,
+                        decoration: InputDecoration(
+                          hintText: translate.enterEmailAddress,
+                          filled: true,
+                          fillColor: Colors.grey[100],
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8),
+                            borderSide: BorderSide.none,
                           ),
                         ),
-                      ],
-                    ),
-                    SizedBox(height: 30,),
-                    SizedBox(
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 30),
+                  SizedBox(
+                    width: double.infinity,
+                    child: SizedBox(
                       width: double.infinity,
-                      child: SizedBox(
-              width: double.infinity,
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  padding: const EdgeInsets.symmetric(vertical: 14),
-                  backgroundColor: color,
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-                ),
-                onPressed: isLoading
-                    ? null // disable while loading
-                    : () async {
-                  final email = _emailCtrl.text.trim();
-                  if (email.isEmpty) return;
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          padding: const EdgeInsets.symmetric(vertical: 14),
+                          backgroundColor: color,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                        ),
+                        onPressed: isLoading
+                            ? null // disable while loading
+                            : () async {
+                                final email = _emailCtrl.text.trim();
+                                if (email.isEmpty) return;
 
-                  ref.read(accessLoadingProvider.notifier).state = true;
-                  try {
-                    final courses = await ref.read(coursesProvider(email).future);
-                    if (courses.isEmpty) {
-                      CustomSnackBar.show(context: context, message: translate.noCoursesFound, icon: Icons.error, color: Colors.red);
+                                ref.read(accessLoadingProvider.notifier).state =
+                                    true;
+                                try {
 
-                    } else {
-                      context.go('/my-courses', extra: courses);
-                    }
-                  } catch (e) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text("Error: $e")),
-                    );
-                  } finally {
-                    ref.read(accessLoadingProvider.notifier).state = false;
-                  }
-                },
-                child: isLoading
-                    ? const SizedBox(
-                  height: 20,
-                  width: 20,
-                  child: CircularProgressIndicator(
-                    strokeWidth: 2,
-                    valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                                  final courses = await ref.read(coursesProvider(email).future);
+
+                                  if (courses.isEmpty) {
+                                    CustomSnackBar.show(
+                                      context: context,
+                                      message: translate.noCoursesFound,
+                                      icon: Icons.error,
+                                      color: Colors.red,
+                                    );
+                                  } else {
+                                    ref.read(myCoursesProvider.notifier).state = courses;
+                                    context.go('/my-courses'); // no need to pass extra
+                                  }
+                                } catch (e) {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(content: Text("Error: $e")),
+                                  );
+                                } finally {
+                                  ref
+                                          .read(accessLoadingProvider.notifier)
+                                          .state =
+                                      false;
+                                }
+                              },
+                        child: isLoading
+                            ? const SizedBox(
+                                height: 20,
+                                width: 20,
+                                child: CircularProgressIndicator(
+                                  strokeWidth: 2,
+                                  valueColor: AlwaysStoppedAnimation<Color>(
+                                    Colors.white,
+                                  ),
+                                ),
+                              )
+                            : Text(
+                                translate.checkAccess,
+                                style: const TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                ),
+                              ),
+                      ),
+                    ),
                   ),
-                )
-                    : Text(
-                  translate.checkAccess,
-                  style: const TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
-                ),
+                ],
               ),
             ),
-
           ),
-
-                  ]
-              ),
-            ),
-          )
         ],
       ),
     );

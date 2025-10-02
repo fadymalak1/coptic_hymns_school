@@ -8,17 +8,19 @@ import 'package:flutter_riverpod/legacy.dart';
 
 
 final accessServiceProvider = Provider(
-      (ref) => AccessService(apiService: ref.read(apiServiceProvider)),
+      (ref) => AccessService(apiService: ref.watch(apiServiceProvider)),
 );
 
 final accessRepositoryProvider = Provider(
-      (ref) => AccessRepository(accessService: ref.read(accessServiceProvider)),
+      (ref) => AccessRepository(accessService: ref.watch(accessServiceProvider)),
 );
 
 // FutureProvider.family so we can pass email dynamically
 final coursesProvider = FutureProvider.family<List<Enrollment>, String>((ref, email) async {
-  final repo = ref.read(accessRepositoryProvider);
+  final repo = ref.watch(accessRepositoryProvider);
   return repo.getCourses(email);
 });
 
 final accessLoadingProvider = StateProvider<bool>((ref) => false);
+
+final myCoursesProvider = StateProvider<List<Enrollment>>((ref) => []);

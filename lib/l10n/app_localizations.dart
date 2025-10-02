@@ -499,6 +499,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'No courses found for this email'**
   String get noCoursesFound;
+
+  /// No description provided for @my_learning_dashboard.
+  ///
+  /// In en, this message translates to:
+  /// **'My Learning Dashboard'**
+  String get my_learning_dashboard;
+
+  /// No description provided for @my_learning_dashboard_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue your learning journey with Coptic Hymns School'**
+  String get my_learning_dashboard_description;
+
+  /// No description provided for @registrationDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Registration Date'**
+  String get registrationDate;
 }
 
 class _AppLocalizationsDelegate

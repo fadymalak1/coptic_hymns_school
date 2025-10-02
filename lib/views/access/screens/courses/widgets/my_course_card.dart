@@ -82,7 +82,25 @@ class MyCourseCard extends ConsumerWidget {
                         ],
                       ),
                     ),
-
+                    SizedBox(width: 10,),
+                    Container(
+                      padding:
+                      const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                      decoration: BoxDecoration(
+                        color: Colors.orange.withOpacity(0.1),
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: Row(
+                        children: [
+                          Icon(Icons.access_time, size: 16, color: color),
+                          const SizedBox(width: 6),
+                          Text(
+                            "${course.course.durationByWeek} ${translate.weeks}",
+                            style: const TextStyle(fontSize: 12, color: Colors.black87,fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
+                    ),
                   ],
                 ),
                SizedBox(height: 16,),
@@ -94,7 +112,7 @@ class MyCourseCard extends ConsumerWidget {
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
                     ),
                     onPressed: () {
-                      context.go('/my-course-details');
+                      context.go('/my-course-details',extra: course);
                     },
                     child: Text(
                       translate.viewCourse,

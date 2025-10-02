@@ -6,7 +6,7 @@ class EnrolledCourse {
   final String instructor;
   final String durationByWeek;
   final String enrollmentsCount;
-  final List<dynamic> videos;
+  final List<Video> videos;
 
   EnrolledCourse({
     required this.id,
@@ -28,11 +28,35 @@ class EnrolledCourse {
       instructor: json['instructor'],
       durationByWeek: json['duration_by_week'],
       enrollmentsCount: json['enrollments_count'],
-      videos: json['videos'] ?? [],
+      videos: (json['videos'] as List<dynamic>? ?? [])
+          .map((v) => Video.fromJson(v))
+          .toList(),
     );
   }
 }
 
+class Video {
+  final String title;
+  final String url;
+
+  Video({
+    required this.title,
+    required this.url,
+  });
+  factory Video.fromJson(Map<String, dynamic> json) {
+    return Video(
+      title: json['title'],
+      url: json['url'],
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'title': title,
+      'url': url,
+    };
+  }
+}
 class Enrollment {
   final int enrollmentId;
   final String enrolledAt;

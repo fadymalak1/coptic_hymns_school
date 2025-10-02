@@ -1,5 +1,7 @@
 import 'package:coptic_hymns_school/l10n/app_localizations.dart';
 import 'package:coptic_hymns_school/shared/widgets/centered_view/centered_view.dart';
+import 'package:coptic_hymns_school/views/access/providers/access_provider.dart';
+import 'package:coptic_hymns_school/views/access/screens/courses/my_courses_section.dart';
 import 'package:coptic_hymns_school/views/home/provider/home_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -14,12 +16,16 @@ class CheckAccess extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context,WidgetRef ref) {
+    final myCourses = ref.watch(myCoursesProvider);
+    if(myCourses.isEmpty){
+      return Center(
+        child: ScreenTypeLayout(
+          mobile: CheckAccessMobile(),
+          desktop: CheckAccessDesktop(),
+        ),
+      );
+    }
+    return const MyCourses();
 
-    return Center(
-      child: ScreenTypeLayout(
-        mobile: CheckAccessMobile(),
-        desktop: CheckAccessDesktop(),
-      ),
-    );
   }
 }

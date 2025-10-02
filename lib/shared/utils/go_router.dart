@@ -1,6 +1,7 @@
 import 'package:coptic_hymns_school/shared/models/enrolled_courses.dart';
 import 'package:coptic_hymns_school/shared/models/enrollment_response.dart';
 import 'package:coptic_hymns_school/views/access/screens/access/check_access.dart';
+import 'package:coptic_hymns_school/views/access/screens/course_details/my_course_details.dart';
 import 'package:coptic_hymns_school/views/access/screens/courses/my_courses_section.dart';
 import 'package:coptic_hymns_school/views/course/screens/course_details.dart';
 import 'package:coptic_hymns_school/views/home/home.dart';
@@ -45,10 +46,15 @@ final router = GoRouter(
         ),
         GoRoute(
           path: '/my-courses',
-          builder: (context,state){
-            final enrolments = state.extra as List<Enrollment>;
-            return MyCourses(enrollments: enrolments);
-          }
+          builder: (context, state) => const MyCourses(),
+        ),
+
+        GoRoute(
+          path: '/my-course-details',
+          builder: (context, state) {
+            final enrollment = state.extra as Enrollment;
+            return MyCourseDetails(course: enrollment);
+          },
         ),
 
       ],

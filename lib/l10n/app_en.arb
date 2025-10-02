@@ -65,5 +65,8 @@
   "access_description": "Enter your registered email address to access your enrolled courses.",
   "checkAccess":"Check Access",
   "viewCourse":"View Course",
-  "noCoursesFound":"No courses found for this email"
+  "noCoursesFound":"No courses found for this email",
+  "my_learning_dashboard":"My Learning Dashboard",
+  "my_learning_dashboard_description":"Continue your learning journey with Coptic Hymns School",
+  "registrationDate":"Registration Date"
 }

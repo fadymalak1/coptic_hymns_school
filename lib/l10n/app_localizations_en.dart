@@ -219,4 +219,14 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get noCoursesFound => 'No courses found for this email';
+
+  @override
+  String get my_learning_dashboard => 'My Learning Dashboard';
+
+  @override
+  String get my_learning_dashboard_description =>
+      'Continue your learning journey with Coptic Hymns School';
+
+  @override
+  String get registrationDate => 'Registration Date';
 }
