@@ -22,7 +22,7 @@ jobs:
         run: flutter pub get
 
       - name: 🏗️ Build Flutter Web
-        run: flutter build web --release --wasm
+        run: flutter build web --release
 
       - name: 📂 Deploy to FTP Server
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
