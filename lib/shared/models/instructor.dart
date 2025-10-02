@@ -7,7 +7,7 @@ class Instructor {
   final String experience;
   final List<String> images;
   final Contacts contacts;
-  final int studentsCount;
+  final String studentsCount;
 
   Instructor({
     required this.id,
@@ -29,7 +29,7 @@ class Instructor {
       experience: json['experience'] as String,
       images: List<String>.from(json['images']),
       contacts: Contacts.fromJson(json['contacts']),
-      studentsCount: json['students_count'] as int,
+      studentsCount: json['students_count'] as String,
     );
   }
 
