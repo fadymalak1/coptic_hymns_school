@@ -1,5 +1,4 @@
 import 'dart:developer';
-
 import 'package:coptic_hymns_school/l10n/app_localizations.dart';
 import 'package:coptic_hymns_school/shared/providers/local_provider.dart';
 import 'package:coptic_hymns_school/shared/screens/error_screen.dart';
@@ -9,7 +8,6 @@ import 'package:coptic_hymns_school/views/home/provider/home_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:lottie/lottie.dart';
-import 'views/home/layout.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'dart:io';
 
@@ -26,7 +24,7 @@ void main() {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(ProviderScope(child: const MyApp()));
 }
-final GlobalKey sectionKey = GlobalKey(); // key for the target widget
+final GlobalKey sectionKey = GlobalKey();
 
 class MyApp extends ConsumerWidget {
   const MyApp({super.key});
@@ -34,7 +32,7 @@ class MyApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final locale = ref.watch(localeProvider);
-    final layoutDataAsync = ref.watch(layoutDataProvider); // ✅ watch instead of read
+    final layoutDataAsync = ref.watch(layoutDataProvider);
 
     return layoutDataAsync.when(
       data: (layoutData) {

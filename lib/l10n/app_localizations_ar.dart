@@ -203,4 +203,21 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get loading => 'جاري التحميل';
+
+  @override
+  String get access_title => 'الوصول إلى الكورسات الخاصة بك';
+
+  @override
+  String get access_description =>
+      'أدخل بريدك الإلكتروني للوصول إلى الكورسات التي قمت بالتسجيل فيها.';
+
+  @override
+  String get checkAccess => 'التحقق من الوصول';
+
+  @override
+  String get viewCourse => 'عرض الكورس';
+
+  @override
+  String get noCoursesFound =>
+      'لم يتم العثور على كورسات لهذا البريد الإلكتروني';
 }

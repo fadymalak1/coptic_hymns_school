@@ -469,6 +469,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Loading...'**
   String get loading;
+
+  /// No description provided for @access_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Access Your Courses'**
+  String get access_title;
+
+  /// No description provided for @access_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your registered email address to access your enrolled courses.'**
+  String get access_description;
+
+  /// No description provided for @checkAccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Check Access'**
+  String get checkAccess;
+
+  /// No description provided for @viewCourse.
+  ///
+  /// In en, this message translates to:
+  /// **'View Course'**
+  String get viewCourse;
+
+  /// No description provided for @noCoursesFound.
+  ///
+  /// In en, this message translates to:
+  /// **'No courses found for this email'**
+  String get noCoursesFound;
 }
 
 class _AppLocalizationsDelegate

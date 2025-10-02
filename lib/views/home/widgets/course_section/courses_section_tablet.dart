@@ -5,8 +5,8 @@ import 'package:coptic_hymns_school/views/home/widgets/course_section/course_car
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class CoursesSectionMobile extends ConsumerWidget {
-  const CoursesSectionMobile({super.key});
+class CoursesSectionTablet extends ConsumerWidget {
+  const CoursesSectionTablet({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -32,11 +32,16 @@ class CoursesSectionMobile extends ConsumerWidget {
             const SizedBox(height: 16),
 
             // Mobile: Just stack the cards in a ListView
-            ListView.separated(
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
+            GridView.builder(
+              shrinkWrap: true, // let it size itself
+              physics: const NeverScrollableScrollPhysics(), // prevent nested scroll issues
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                mainAxisSpacing: 12,
+                crossAxisSpacing: 12,
+                childAspectRatio: 0.9,
+              ),
               itemCount: courses.length,
-              separatorBuilder: (context, index) => const SizedBox(height: 12),
               itemBuilder: (context, index) {
                 return CourseCard(course: courses[index]);
               },

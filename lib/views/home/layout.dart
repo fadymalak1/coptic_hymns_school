@@ -5,7 +5,7 @@ import 'package:coptic_hymns_school/shared/screens/error_screen.dart';
 import 'package:coptic_hymns_school/shared/utils/animations.dart';
 import 'package:coptic_hymns_school/shared/widgets/centered_view/centered_view.dart';
 import 'package:coptic_hymns_school/shared/widgets/drawer/navigation_drawer.dart';
-import 'package:coptic_hymns_school/views/access/screens/check_access.dart';
+import 'package:coptic_hymns_school/views/access/screens/access/check_access.dart';
 import 'package:coptic_hymns_school/views/home/home.dart';
 import 'package:coptic_hymns_school/views/home/provider/home_provider.dart';
 import 'package:coptic_hymns_school/views/home/widgets/navigation_bar/navigation_bar.dart';

@@ -7,15 +7,14 @@ class CustomSnackBar {
     Color color = Colors.green,
     IconData icon = Icons.check_circle,
     Duration duration = const Duration(seconds: 2),
-    bool isMobile=false,
   }) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         behavior: SnackBarBehavior.floating,
         backgroundColor: Colors.transparent,
         elevation: 0,
-        width: isMobile?MediaQuery.of(context).size.width*0.5:MediaQuery.of(context).size.width / 5, // مناسب للويب
-        content: Container(
+          width:MediaQuery.of(context).size.width > 600 ? 400 : null,
+          content: Container(
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
           decoration: BoxDecoration(
             color: color.withOpacity(0.9),

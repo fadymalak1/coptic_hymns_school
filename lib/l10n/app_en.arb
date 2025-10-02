@@ -60,5 +60,10 @@
   "submitPayment": "Submit Payment",
   "paymentSubmitted": "Payment Submitted ✅",
   "failedToSubmit": "Failed to submit payment",
-  "loading": "Loading..."
+  "loading": "Loading...",
+  "access_title": "Access Your Courses",
+  "access_description": "Enter your registered email address to access your enrolled courses.",
+  "checkAccess":"Check Access",
+  "viewCourse":"View Course",
+  "noCoursesFound":"No courses found for this email"
 }

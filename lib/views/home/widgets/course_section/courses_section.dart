@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
-import 'courses_section_desktop.dart';
+import '../../../home/widgets/course_section/courses_section_desktop.dart';
 import 'courses_section_mobile.dart';
+import 'courses_section_tablet.dart';
 
 class CoursesSection extends StatelessWidget {
   const CoursesSection({super.key});
@@ -12,6 +13,7 @@ class CoursesSection extends StatelessWidget {
     return ScreenTypeLayout(
       mobile: const CoursesSectionMobile(),
       desktop: const CoursesSectionDesktop(),
+      tablet: const CoursesSectionTablet(),
     );
   }
 }

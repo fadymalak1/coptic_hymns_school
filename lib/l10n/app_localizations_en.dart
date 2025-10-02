@@ -203,4 +203,20 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get loading => 'Loading...';
+
+  @override
+  String get access_title => 'Access Your Courses';
+
+  @override
+  String get access_description =>
+      'Enter your registered email address to access your enrolled courses.';
+
+  @override
+  String get checkAccess => 'Check Access';
+
+  @override
+  String get viewCourse => 'View Course';
+
+  @override
+  String get noCoursesFound => 'No courses found for this email';
 }

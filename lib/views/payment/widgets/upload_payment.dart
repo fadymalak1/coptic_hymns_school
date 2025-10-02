@@ -157,7 +157,6 @@ class _UploadPaymentState extends ConsumerState<UploadPayment> {
                       message: translate.paymentSubmitted,
                       icon: Icons.check_circle,
                       color: Colors.green,
-                      isMobile: widget.isMobile,
                     );
                     context.go("/");
                   }
@@ -172,7 +171,6 @@ class _UploadPaymentState extends ConsumerState<UploadPayment> {
                       message: translate.failedToSubmit,
                       icon: Icons.error,
                       color: Colors.red,
-                      isMobile: widget.isMobile,
                     );
                   }
                 },
