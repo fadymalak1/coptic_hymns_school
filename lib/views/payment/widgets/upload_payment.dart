@@ -138,53 +138,46 @@ class _UploadPaymentState extends ConsumerState<UploadPayment> {
         SizedBox(
           width: double.infinity,
           child: ElevatedButton(
-            onPressed: fileBytes == null
+            onPressed: (fileBytes == null || ref.watch(paymentUploadProvider).isLoading)
                 ? null
                 : () async {
+              setState(() {}); // trigger rebuild
+              await ref.read(paymentUploadProvider.notifier).uploadPayment(
+                fileBytes!,
+                fileName!,
+                widget.enrolment.enrollmentId.toString(),
+              );
+              final state = ref.read(paymentUploadProvider);
 
-                    await ref.read(paymentUploadProvider.notifier).uploadPayment(
-                      fileBytes!,
-                      fileName!,
-                      widget.enrolment.enrollmentId.toString(),
+              state.when(
+                data: (_) {
+                  if (context.mounted) {
+                    CustomSnackBar.show(
+                      context: context,
+                      message: translate.paymentSubmitted,
+                      icon: Icons.check_circle,
+                      color: Colors.green,
+                      isMobile: widget.isMobile,
                     );
-                    // متابعة الحالة
-                    final state = ref.read(paymentUploadProvider);
-
-                    state.when(
-                      data: (_) {
-                        if (context.mounted) {
-                          CustomSnackBar.show(
-                            context: context,
-                            message: translate.paymentSubmitted,
-                            icon: Icons.check_circle,
-                            color: Colors.green,
-                            isMobile: widget.isMobile,
-                          );
-                          context.go("/"); // رجوع للـ Layout
-                        }
-                      },
-                      loading: () {
-                        CustomSnackBar.show(
-                          context: context,
-                          message: translate.loading,
-                          icon: Icons.hourglass_bottom,
-                          color: Colors.orange,
-                          isMobile: widget.isMobile,
-                        );
-                      },
-                      error: (err, _) {
-                        if (context.mounted) {
-                          CustomSnackBar.show(
-                            context: context,
-                            message: translate.failedToSubmit,
-                            icon: Icons.error,
-                            color: Colors.red,
-                            isMobile: widget.isMobile,
-                          );
-                        }
-                      },
+                    context.go("/");
+                  }
+                },
+                loading: () {
+                  // handled by button itself
+                },
+                error: (err, _) {
+                  if (context.mounted) {
+                    CustomSnackBar.show(
+                      context: context,
+                      message: translate.failedToSubmit,
+                      icon: Icons.error,
+                      color: Colors.red,
+                      isMobile: widget.isMobile,
                     );
-                  },
+                  }
+                },
+              );
+            },
             style: ElevatedButton.styleFrom(
               backgroundColor: color,
               padding: const EdgeInsets.symmetric(vertical: 16),
@@ -192,14 +185,25 @@ class _UploadPaymentState extends ConsumerState<UploadPayment> {
                 borderRadius: BorderRadius.circular(8),
               ),
             ),
-            child: Text(
-              translate.submitPayment,
-              style: const TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
+            child: ref.watch(paymentUploadProvider).maybeWhen(
+              loading: () => const SizedBox(
+                width: 20,
+                height: 20,
+                child: CircularProgressIndicator(
+                  strokeWidth: 2,
+                  valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                ),
+              ),
+              orElse: () => Text(
+                translate.submitPayment,
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
-          ),
+          )
+
         ),
       ],
     );
