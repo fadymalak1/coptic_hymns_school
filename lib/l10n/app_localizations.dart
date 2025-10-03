@@ -517,6 +517,42 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Registration Date'**
   String get registrationDate;
+
+  /// No description provided for @rateThisCourse.
+  ///
+  /// In en, this message translates to:
+  /// **'Rate this Course'**
+  String get rateThisCourse;
+
+  /// No description provided for @thanksForYourRating.
+  ///
+  /// In en, this message translates to:
+  /// **'Thanks for your rating!'**
+  String get thanksForYourRating;
+
+  /// No description provided for @pleaseSelectARate.
+  ///
+  /// In en, this message translates to:
+  /// **'Please select a rate before submitting'**
+  String get pleaseSelectARate;
+
+  /// No description provided for @youHaveAlreadyRatedThisCourse.
+  ///
+  /// In en, this message translates to:
+  /// **'You have already rated this course'**
+  String get youHaveAlreadyRatedThisCourse;
+
+  /// No description provided for @emailNotFound.
+  ///
+  /// In en, this message translates to:
+  /// **'Email not found'**
+  String get emailNotFound;
+
+  /// No description provided for @somethingWentWrong.
+  ///
+  /// In en, this message translates to:
+  /// **'Something went wrong'**
+  String get somethingWentWrong;
 }
 
 class _AppLocalizationsDelegate

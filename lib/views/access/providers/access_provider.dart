@@ -24,3 +24,4 @@ final coursesProvider = FutureProvider.family<List<Enrollment>, String>((ref, em
 final accessLoadingProvider = StateProvider<bool>((ref) => false);
 
 final myCoursesProvider = StateProvider<List<Enrollment>>((ref) => []);
+

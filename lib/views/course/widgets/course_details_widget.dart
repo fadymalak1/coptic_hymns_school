@@ -82,7 +82,7 @@ class CourseDetailsWidget extends ConsumerWidget {
             const SizedBox(height: 6),
 
             // Students
-            if(int.parse(course.enrollmentsCount)>0)...[
+            if(int.parse(course.enrollmentsCount)>20)...[
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [

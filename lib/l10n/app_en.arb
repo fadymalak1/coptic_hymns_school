@@ -68,5 +68,11 @@
   "noCoursesFound":"No courses found for this email",
   "my_learning_dashboard":"My Learning Dashboard",
   "my_learning_dashboard_description":"Continue your learning journey with Coptic Hymns School",
-  "registrationDate":"Registration Date"
+  "registrationDate":"Registration Date",
+  "rateThisCourse": "Rate this Course",
+  "thanksForYourRating": "Thanks for your rating!",
+  "pleaseSelectARate": "Please select a rate before submitting",
+  "youHaveAlreadyRatedThisCourse": "You have already rated this course",
+  "emailNotFound": "Email not found",
+  "somethingWentWrong": "Something went wrong"
 }

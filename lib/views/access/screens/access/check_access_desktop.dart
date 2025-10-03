@@ -93,39 +93,38 @@ class CheckAccessDesktop extends ConsumerWidget {
                           ),
                         ),
                         onPressed: isLoading
-                            ? null // disable while loading
+                            ? null
                             : () async {
-                                final email = _emailCtrl.text.trim();
-                                if (email.isEmpty) return;
+                          final email = _emailCtrl.text.trim();
+                          if (email.isEmpty) return;
 
-                                ref.read(accessLoadingProvider.notifier).state =
-                                    true;
-                                try {
+                          ref.read(accessLoadingProvider.notifier).state = true;
+                          try {
+                            final courses = await ref.read(coursesProvider(email).future);
 
-                                  final courses = await ref.read(coursesProvider(email).future);
+                            if (courses.isEmpty) {
+                              CustomSnackBar.show(
+                                context: context,
+                                message: translate.noCoursesFound,
+                                icon: Icons.error,
+                                color: Colors.red,
+                              );
+                            } else {
+                              // ✅ save email in provider
+                              // ref.read(emailProvider.notifier).state = email;
 
-                                  if (courses.isEmpty) {
-                                    CustomSnackBar.show(
-                                      context: context,
-                                      message: translate.noCoursesFound,
-                                      icon: Icons.error,
-                                      color: Colors.red,
-                                    );
-                                  } else {
-                                    ref.read(myCoursesProvider.notifier).state = courses;
-                                    context.go('/my-courses'); // no need to pass extra
-                                  }
-                                } catch (e) {
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                    SnackBar(content: Text("Error: $e")),
-                                  );
-                                } finally {
-                                  ref
-                                          .read(accessLoadingProvider.notifier)
-                                          .state =
-                                      false;
-                                }
-                              },
+                              ref.read(myCoursesProvider.notifier).state = courses;
+                              context.go('/my-courses');
+                            }
+                          } catch (e) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(content: Text("Error: $e")),
+                            );
+                          } finally {
+                            ref.read(accessLoadingProvider.notifier).state = false;
+                          }
+                        },
+
                         child: isLoading
                             ? const SizedBox(
                                 height: 20,

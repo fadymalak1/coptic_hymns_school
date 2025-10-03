@@ -230,4 +230,23 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get registrationDate => 'تاريخ التسجيل:';
+
+  @override
+  String get rateThisCourse => 'قيّم هذه الدورة';
+
+  @override
+  String get thanksForYourRating => 'شكرًا لتقييمك!';
+
+  @override
+  String get pleaseSelectARate => 'يرجى اختيار تقييم قبل الإرسال';
+
+  @override
+  String get youHaveAlreadyRatedThisCourse =>
+      'لقد قمت بتقييم هذه الدورة من قبل';
+
+  @override
+  String get emailNotFound => 'لم يتم العثور على البريد الإلكتروني';
+
+  @override
+  String get somethingWentWrong => 'حدث خطأ ما';
 }

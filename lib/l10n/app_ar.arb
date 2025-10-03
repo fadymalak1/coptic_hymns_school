@@ -68,5 +68,11 @@
   "noCoursesFound": "لم يتم العثور على كورسات لهذا البريد الإلكتروني",
   "my_learning_dashboard":"كورساتي",
   "my_learning_dashboard_description": "أكمل رحلة التعلم مع مدرسة الألحان القبطية",
-  "registrationDate":"تاريخ التسجيل:"
+  "registrationDate":"تاريخ التسجيل:",
+  "somethingWentWrong": "حدث خطأ ما",
+  "rateThisCourse": "قيّم هذه الدورة",
+  "thanksForYourRating": "شكرًا لتقييمك!",
+  "pleaseSelectARate": "يرجى اختيار تقييم قبل الإرسال",
+  "youHaveAlreadyRatedThisCourse": "لقد قمت بتقييم هذه الدورة من قبل",
+  "emailNotFound": "لم يتم العثور على البريد الإلكتروني"
 }

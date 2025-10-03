@@ -229,4 +229,23 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get registrationDate => 'Registration Date';
+
+  @override
+  String get rateThisCourse => 'Rate this Course';
+
+  @override
+  String get thanksForYourRating => 'Thanks for your rating!';
+
+  @override
+  String get pleaseSelectARate => 'Please select a rate before submitting';
+
+  @override
+  String get youHaveAlreadyRatedThisCourse =>
+      'You have already rated this course';
+
+  @override
+  String get emailNotFound => 'Email not found';
+
+  @override
+  String get somethingWentWrong => 'Something went wrong';
 }

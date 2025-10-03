@@ -64,6 +64,7 @@ class MyCourseCard extends ConsumerWidget {
                 // Students + Duration
                 Row(
                   children: [
+                    if(int.parse(course.course.enrollmentsCount)>20)
                     Container(
                       padding:
                       const EdgeInsets.symmetric(horizontal: 8, vertical: 4),

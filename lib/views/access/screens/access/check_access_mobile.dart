@@ -74,7 +74,7 @@ class CheckAccessMobile extends ConsumerWidget {
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
                 ),
                 onPressed: isLoading
-                    ? null // disable while loading
+                    ? null
                     : () async {
                   final email = _emailCtrl.text.trim();
                   if (email.isEmpty) return;
@@ -83,13 +83,19 @@ class CheckAccessMobile extends ConsumerWidget {
                   try {
                     final courses = await ref.read(coursesProvider(email).future);
 
-
                     if (courses.isEmpty) {
-                      CustomSnackBar.show(context: context, message: translate.noCoursesFound, icon: Icons.error, color: Colors.red);
-
+                      CustomSnackBar.show(
+                        context: context,
+                        message: translate.noCoursesFound,
+                        icon: Icons.error,
+                        color: Colors.red,
+                      );
                     } else {
+                      // ✅ save email in provider
+                      // ref.read(emailProvider.notifier).state = email;
+
                       ref.read(myCoursesProvider.notifier).state = courses;
-                      context.go('/my-courses'); // no need to pass extra
+                      context.go('/my-courses');
                     }
                   } catch (e) {
                     ScaffoldMessenger.of(context).showSnackBar(
@@ -99,6 +105,7 @@ class CheckAccessMobile extends ConsumerWidget {
                     ref.read(accessLoadingProvider.notifier).state = false;
                   }
                 },
+
                 child: isLoading
                     ? const SizedBox(
                   height: 20,

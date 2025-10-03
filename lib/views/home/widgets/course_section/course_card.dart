@@ -33,9 +33,9 @@ class CourseCard extends ConsumerWidget {
               children: [
                 SizedBox(
                   width: double.infinity,
-                  height: 180,
+                  height: 200,
                   child: course.image==null?Image.asset(AppImages.placeHolder,fit: BoxFit.cover,):Image.network(
-                    course.image??"", // ensure your Course model has this field
+                    course.image??"",
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -67,6 +67,7 @@ class CourseCard extends ConsumerWidget {
                   const SizedBox(height: 16),
 
                   // Students + Duration
+                  if(int.parse(course.enrollmentsCount)>20)...[
                   Row(
                     children: [
                       Container(
@@ -90,8 +91,7 @@ class CourseCard extends ConsumerWidget {
 
                     ],
                   ),
-                  const SizedBox(height: 16),
-
+],
                   // Price + Button
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,

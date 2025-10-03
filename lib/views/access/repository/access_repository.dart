@@ -18,4 +18,10 @@ class AccessRepository {
       return [];
     }
   }
+
+  Future<Map<String, dynamic>> rateCourse(int courseId, int rating, String email) async {
+    final response = await accessService.rateCourse(courseId, rating, email);
+    return response;
+  }
+
 }
