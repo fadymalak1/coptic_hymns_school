@@ -16,7 +16,7 @@ class CheckAccessMobile extends ConsumerWidget {
   Widget build(BuildContext context,WidgetRef ref) {
     final color = ref.watch(primaryColorProvider);
     final translate = AppLocalizations.of(context)!;
-    final _emailCtrl = TextEditingController();
+    final email = ref.watch(emailProvider);
     final isLoading = ref.watch(accessLoadingProvider);
     return Container(
       alignment: Alignment.center,
@@ -43,7 +43,9 @@ class CheckAccessMobile extends ConsumerWidget {
                         Text(translate.emailAddress, style: const TextStyle(fontWeight: FontWeight.bold)),
                         const SizedBox(height: 6),
                         TextFormField(
-                          controller: _emailCtrl,
+                          onChanged: (v) {
+                            ref.read(emailProvider.notifier).state = v;
+                          },
                           validator: (v) {
                             if (v == null || v.isEmpty) return translate.fieldRequired;
                             final emailRegex = RegExp(r'^[^@]+@[^@]+\.[^@]+');
@@ -76,8 +78,9 @@ class CheckAccessMobile extends ConsumerWidget {
                 onPressed: isLoading
                     ? null
                     : () async {
-                  final email = _emailCtrl.text.trim();
-                  if (email.isEmpty) return;
+
+                  final email = ref.read(emailProvider);
+                  if (email!.isEmpty) return;
 
                   ref.read(accessLoadingProvider.notifier).state = true;
                   try {
@@ -92,8 +95,7 @@ class CheckAccessMobile extends ConsumerWidget {
                       );
                     } else {
                       // ✅ save email in provider
-                      // ref.read(emailProvider.notifier).state = email;
-
+                      ref.read(emailProvider.notifier).state = email;
                       ref.read(myCoursesProvider.notifier).state = courses;
                       context.go('/my-courses');
                     }

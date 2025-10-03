@@ -15,7 +15,7 @@ class CheckAccessDesktop extends ConsumerWidget {
     final color = ref.watch(primaryColorProvider);
     final translate = AppLocalizations.of(context)!;
     final isLoading = ref.watch(accessLoadingProvider);
-    final _emailCtrl = TextEditingController();
+    final email = ref.watch(emailProvider);
     return Container(
       alignment: Alignment.center,
       width: MediaQuery.of(context).size.width / 3,
@@ -57,7 +57,6 @@ class CheckAccessDesktop extends ConsumerWidget {
                       ),
                       const SizedBox(height: 6),
                       TextFormField(
-                        controller: _emailCtrl,
                         validator: (v) {
                           if (v == null || v.isEmpty)
                             return translate.fieldRequired;
@@ -65,6 +64,9 @@ class CheckAccessDesktop extends ConsumerWidget {
                           if (!emailRegex.hasMatch(v))
                             return translate.invalidEmail;
                           return null;
+                        },
+                        onChanged: (v) {
+                          ref.read(emailProvider.notifier).state = v;
                         },
                         keyboardType: TextInputType.emailAddress,
                         decoration: InputDecoration(
@@ -95,8 +97,8 @@ class CheckAccessDesktop extends ConsumerWidget {
                         onPressed: isLoading
                             ? null
                             : () async {
-                          final email = _emailCtrl.text.trim();
-                          if (email.isEmpty) return;
+                          final email = ref.read(emailProvider);
+                          if (email!.isEmpty) return;
 
                           ref.read(accessLoadingProvider.notifier).state = true;
                           try {
@@ -111,8 +113,7 @@ class CheckAccessDesktop extends ConsumerWidget {
                               );
                             } else {
                               // ✅ save email in provider
-                              // ref.read(emailProvider.notifier).state = email;
-
+                              ref.read(emailProvider.notifier).state = email;
                               ref.read(myCoursesProvider.notifier).state = courses;
                               context.go('/my-courses');
                             }

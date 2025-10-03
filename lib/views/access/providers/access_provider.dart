@@ -25,3 +25,5 @@ final accessLoadingProvider = StateProvider<bool>((ref) => false);
 
 final myCoursesProvider = StateProvider<List<Enrollment>>((ref) => []);
 
+final emailProvider = StateProvider<String?>((ref) => null);
+
