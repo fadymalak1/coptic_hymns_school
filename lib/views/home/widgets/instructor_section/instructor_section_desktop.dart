@@ -77,6 +77,7 @@ class InstructorSectionDesktop extends ConsumerWidget {
                       fontWeight: FontWeight.normal,
                       color: Colors.grey,
                     ),
+                    maxLines: 9,
                   ),
                   Spacer(),
                   Row(

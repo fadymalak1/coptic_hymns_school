@@ -14,7 +14,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:lottie/lottie.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
-
 class LayoutView extends ConsumerWidget {
   final Widget child;
   final String location; // 👈 added
@@ -24,10 +23,21 @@ class LayoutView extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final locale = ref.watch(localeProvider);
     final isArabic = locale.languageCode == 'ar';
-    final selectedTab = ref.watch(selectedTabProvider);
 
-    // now detect tabs by path
+    // detect tabs by path
     final isTabPage = location == '/' || location == '/check-access';
+
+    int tabIndex = 0;
+    if (location == '/') {
+      tabIndex = 0;
+    } else if (location == '/check-access') {
+      tabIndex = 1;
+    }
+
+    // 👇 حل المشكلة: حدّث الـ provider بعد الـ build
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      ref.read(selectedTabProvider.notifier).state = tabIndex;
+    });
 
     return Directionality(
       textDirection: isArabic ? TextDirection.rtl : TextDirection.ltr,
@@ -43,7 +53,7 @@ class LayoutView extends ConsumerWidget {
                 Expanded(
                   child: isTabPage
                       ? IndexedStack(
-                    index: selectedTab,
+                    index: tabIndex,
                     children: const [
                       HomeView(),
                       CheckAccess(),
