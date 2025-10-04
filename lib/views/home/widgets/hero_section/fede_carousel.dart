@@ -90,7 +90,7 @@ class _FadeCarouselState extends ConsumerState<FadeCarousel> {
               child: Image.network(
                 widget.images[_currentIndex],
                 key: ValueKey<int>(_currentIndex),
-                fit: BoxFit.cover,
+                fit: BoxFit.fill,
                 height: widget.height,
                 width: double.infinity,
               ),
